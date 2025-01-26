@@ -9,20 +9,19 @@ dotenv.config();
 const app = express();
 const MONGOURL = process.env.MONGO_URL;
 
-// Middleware
+
 app.use(express.json());
 
-// CORS Configuration
+
 const corsOptions = {
-    origin: ["http://localhost:5173", "https://smit-hackathon-project.netlify.app"], // Allowed origins
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-    credentials: true, // Allow cookies and credentials
+    origin: ["http://localhost:5173", "https://hackathon-frontend.netlify.app/"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
+    allowedHeaders: ["Content-Type", "Authorization"], 
+    credentials: true, 
 };
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Handle preflight requests
+app.options("*", cors(corsOptions)); 
 
-// MongoDB Connection
 mongoose
     .connect(MONGOURL)
     .then(() => {
