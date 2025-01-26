@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 const corsOptions = {
-    origin: ["http://localhost:5173", "https://hackathon-frontend.netlify.app/"],
+    origin: ["*"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
     allowedHeaders: ["Content-Type", "Authorization"], 
     credentials: true, 
